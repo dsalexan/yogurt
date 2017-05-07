@@ -55,7 +55,12 @@ public class Escalonadores
              processos.remove(proximo); //remove da lista de processos
              processosRestantes--; 
         }
-        //return diagrama;
+    }
+    public void SJF()
+    {
+        for(int i=0;processosRestantes>0;i+=0)//i é o contador do tempo
+        {
+        }
     }
   
 }

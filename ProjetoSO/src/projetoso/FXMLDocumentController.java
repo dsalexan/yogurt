@@ -42,7 +42,6 @@ public class FXMLDocumentController implements Initializable {
         lista.add(p1);lista.add(p2);lista.add(p3);lista.add(p4);lista.add(p5);
         Escalonadores fifo=new Escalonadores(lista);
         fifo.FIFO(); //escalonar com fifo
-    
         System.out.print(fifo.toString());
     }    
     
