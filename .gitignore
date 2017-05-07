@@ -4,12 +4,9 @@
 # NetBeans
 build/
 dist/
-<<<<<<< HEAD
-=======
 
 # IntelliJ
 out/
->>>>>>> origin/master
 
 # User-specific stuff:
 .idea/**/workspace.xml
