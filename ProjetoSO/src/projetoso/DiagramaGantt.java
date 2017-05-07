@@ -9,6 +9,8 @@ package projetoso;
  *
  * @author rafae
  */
+
+//todo Funciona?
 public class DiagramaGantt //cada objeto representa um nó do diagrama
 {
     Processo processo;
