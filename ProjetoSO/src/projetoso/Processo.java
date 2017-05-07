@@ -53,4 +53,12 @@ public class Processo
     {
         return tempoTermino;
     }
+    public String getCor()
+    {
+        return cor;
+    }
+    public String toString()
+    {
+        return cor;
+    }
 }

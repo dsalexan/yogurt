@@ -21,4 +21,5 @@ public class DiagramaGantt //cada objeto representa um nó do diagrama
         this.tempoFim=tempoFim;
         this.processo=processo;
     }
+    
 }
