@@ -3,7 +3,7 @@ package main;
 
 import java.util.ArrayList;
 
-public class Escalonadores 
+public class Escalonadores
 {
     ArrayList<Processo> processos;
     ArrayList<DiagramaGantt> diagrama;
@@ -25,8 +25,8 @@ public class Escalonadores
             else string+=("\nProcesso "+diagrama.get(i).processo.getCor()+", começo: "+diagrama.get(i).tempoIni + ", fim: "+diagrama.get(i).tempoFim);
         }
         return string;
-    } 
-   
+    }
+
     public void FIFO()
     {
         Processo proximo =processos.get(0);
@@ -53,7 +53,7 @@ public class Escalonadores
              proximo.setTerminado(true);
              proximo.setTempoTermino(i); //coloca o tempo em que terminou;
              processos.remove(proximo); //remove da lista de processos
-             processosRestantes--; 
+             processosRestantes--;
         }
         //return diagrama;
     }
@@ -74,9 +74,9 @@ public class Escalonadores
                     menorTempoChegada = processos.get(j);
                 }
             }
-            
+
             if(prontos.size()>0)
-            {  
+            {
                 Processo menorProcesso=prontos.get(0);
                 for(int j=0;j<prontos.size();j++) //agora selecionar o menor processo dentre os prontos
                 {
@@ -92,7 +92,7 @@ public class Escalonadores
                   menorProcesso.setTerminado(true);
                   menorProcesso.setTempoTermino(i); //coloca o tempo em que terminou;
                   processos.remove(menorProcesso); //remove da lista de processos
-                    processosRestantes--; 
+                    processosRestantes--;
             }
             else //nenhum processo chegou ainda cpu vazia
             {
@@ -100,9 +100,9 @@ public class Escalonadores
                 diagrama.add(vazio);
                 i=menorTempoChegada.getTempoChegada();
             }
-            
+
         }
-    }
+    }processosOrdenados
     public void SRT()
     {
         DiagramaGantt novo =null;
@@ -121,9 +121,9 @@ public class Escalonadores
                     menorTempoChegada = processos.get(j);
                 }
             }
-             
+
               if(prontos.size()>0)
-            {  
+            {
                 Processo menorProcesso=prontos.get(0);
                 for(int j=0;j<prontos.size();j++) //agora selecionar o menor processo dentre os prontos
                 {
@@ -147,7 +147,7 @@ public class Escalonadores
                         novo.tempoFim =i; //colocando o tempo que terminou no diagrama
                         diagrama.add(novo); //finalmente coloca o processo na lista do diagrama
                         processos.remove(novo.processo); //remove da lista de processos
-                        processosRestantes--; 
+                        processosRestantes--;
                         novo=null; //liberou o processador
                     }
                     else if (menorProcesso.getTempoParaProcessar()<novo.processo.getTempoParaProcessar()) //preempção, trocar processo
@@ -165,7 +165,7 @@ public class Escalonadores
                         novo.processo.setTempoParaProcessar(novo.processo.getTempoParaProcessar()-1); //diminui o tempo restante para terminar
                     }
                 }
-                  
+
             }
             else //nenhum processo chegou ainda cpu vazia
             {
@@ -175,5 +175,53 @@ public class Escalonadores
             }
         }
     }
-  
+
+    public void PRIO(boolean preemptivo){ // considerar NAO-PREEMPTIVO para começar
+      ArrayList<Processo> processosNaFila;
+      ArrayList<Processo> processosOrdenados;
+      Processo p; // processo
+      int t = 0; // tempo
+      int i = 0; // indice do processo
+
+      while(processosRestantes > 0){ // enquanto nao executar todos os processos da lista
+        do{
+          // lista os processos na fila
+          processosNaFila = processos.clone();
+          processosNaFila.removeIf(p -> p.getTerminado())
+
+          //verifica que processos ja chegaram
+          processosNaFila.removeIf(p -> p.getTempoChegada() > t);
+
+          //ordena a fila por prioridade
+          processosNaFila.order((p1, p2) -> p1.getTempoChegada() - p2.getTempoChegada()); // ordenar por tempo de chegada
+          processosNaFila.order((p1, p2) -> p1.getPrioridade() - p2.getPrioridade()); // ordenar por prioridade
+
+          if(processosNaFila.size() == 0){
+            // remove processos ordenados
+            processosOrdenados = processos.clone();
+            processosOrdenados.removeIf(p -> p.getTerminado())
+
+            //reordena a lista para buscar o processo por chegada e prioridade
+            processosOrdenados.order((p1, p2) -> p1.getPrioridade() - p2.getPrioridade()); // ordenar por prioridade
+            processosOrdenados.order((p1, p2) -> p1.getTempoChegada() - p2.getTempoChegada()); // ordenar por tempo de chegada
+
+            //espera se necessário
+            if(t < processosOrdenados.get(i).getTempoChegada()){
+              t = processosOrdenados.get(i).getTempoChegada();
+            }
+          }
+        } while(processosNaFila.size() == 0 && processosRestantes > 0)
+
+        // atualiza o diagrama
+        diagrama.add(new DiagramaGantt(t, t+processos.get(i).getTempoParaProcessar(), processos.get(i)));
+
+        //executa o processo P
+        t += processos.get(i).getTempoParaProcessar();
+        processos.get(i).setTempoTermino(t);
+        processos.get(i).setTempoParaProcessar(0);
+        processos.get(i).setTerminado(true);
+
+        processosRestantes--;
+      }
+    }
 }
