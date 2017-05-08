@@ -35,15 +35,14 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("ola");
         Processo p1,p2,p3,p4,p5;
         p1 = new Processo(10, 6, 1,"1");
-        p2 = new Processo(10, 5, 1,"2");
-        p3 = new Processo(10, 3, 1,"3");
-        p4 = new Processo(30, 10, 1,"4");
+        p2 = new Processo(12, 2, 1,"2");
+        p3 = new Processo(14, 2, 1,"3");
+        p4 = new Processo(16, 10, 1,"4");
         p5 = new Processo(45,10,1,"5");
         ArrayList<Processo> lista = new ArrayList<>();
         lista.add(p1);lista.add(p2);lista.add(p3);lista.add(p4);lista.add(p5);
         Escalonadores escalonador=new Escalonadores(lista);
-        escalonador.SJF();//escalonar com fifo
-    
+        escalonador.SRT();//escalonar com SRT
         System.out.print(escalonador.toString());
     }    
     
