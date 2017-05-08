@@ -35,7 +35,7 @@ public class Escalonadores
             proximo = processos.get(0);
             for(int j=0;j<processos.size();j++) //selecionar o processos com o menor tempo de chegada.
             {
-                if( (proximo.getTempoChegada() > processos.get(j).getTempoChegada()) && (processos.get(j).getTerminado()==false) )
+                if(proximo.getTempoChegada() > processos.get(j).getTempoChegada())
                 {
                     proximo = processos.get(j);
                 }
@@ -56,6 +56,52 @@ public class Escalonadores
              processosRestantes--; 
         }
         //return diagrama;
+    }
+    public void SJF()
+    {
+         for(int i=0;processosRestantes>0;i+=0)//i é o contador do tempo
+        {
+             ArrayList<Processo> prontos = new ArrayList<>();
+             Processo menorTempoChegada=processos.get(0);
+             for(int j=0;j<processos.size();j++) //colocar na lista os processos prontos para serem executados
+            {
+                if(processos.get(j).getTempoChegada()<=i) //verificar se tem algum processo que chegou em um tempo menor ou igual ao tempo atual
+                {
+                    prontos.add(processos.get(j));
+                }
+                if(menorTempoChegada.getTempoChegada() > processos.get(j).getTempoChegada())
+                {
+                    menorTempoChegada = processos.get(j);
+                }
+            }
+            
+            if(prontos.size()>0)
+            {  
+                Processo menorProcesso=prontos.get(0);
+                for(int j=0;j<prontos.size();j++) //agora selecionar o menor processo dentre os prontos
+                {
+                    if(menorProcesso.getTempoParaProcessar() > prontos.get(j).getTempoParaProcessar())
+                    {
+                        menorProcesso =  prontos.get(j);
+                    }
+                }
+                  DiagramaGantt novo = new DiagramaGantt(i, i+menorProcesso.getTempoParaProcessar(), menorProcesso);
+                  diagrama.add(novo);
+                  i=novo.tempoFim; //passa o tempo que o processo fica no processador
+                  menorProcesso.setTempoParaProcessar(0); //processo termina de processar
+                  menorProcesso.setTerminado(true);
+                  menorProcesso.setTempoTermino(i); //coloca o tempo em que terminou;
+                  processos.remove(menorProcesso); //remove da lista de processos
+                    processosRestantes--; 
+            }
+            else //nenhum processo chegou ainda cpu vazia
+            {
+                DiagramaGantt vazio = new DiagramaGantt(i,menorTempoChegada.getTempoChegada(),null);
+                diagrama.add(vazio);
+                i=menorTempoChegada.getTempoChegada();
+            }
+            
+        }
     }
   
 }
