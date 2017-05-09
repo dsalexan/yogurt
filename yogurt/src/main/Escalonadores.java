@@ -176,7 +176,7 @@ public class Escalonadores
         }
     }
 
-    public void PRIO(boolean preemptivo){ // considerar NAO-PREEMPTIVO para começar
+    public void PRIO(){
       ArrayList<Processo> processosNaFila;
       ArrayList<Processo> processosOrdenados;
       Processo p; // processo
@@ -222,6 +222,51 @@ public class Escalonadores
         processos.get(i).setTerminado(true);
 
         processosRestantes--;
+      }
+    }
+
+    public void PRIO_PREEMPTIVO(){
+      ArrayList<Processo> processosNaFila;
+      ArrayList<Processo> processosOrdenados;
+      Map<String, int> memoria; // armazena a memoria de quando foi iniciado o processo
+      Object[] ultimoProcesso = new Object[]{"", -1}; // armazena ultimo processo a ser executado (detecta preempcao)
+      Processo p; // processo
+      int i = 0; // indice do processo
+
+      for(int t=1; processosRestantes > 0; t++){ // enquanto nao executar todos os processos da lista o relogio ticka
+        // lista os processos na fila
+        processosNaFila = processos.clone();
+        processosNaFila.removeIf(p -> p.getTerminado())
+
+        //verifica que processos ja chegaram
+        processosNaFila.removeIf(p -> p.getTempoChegada() > t);
+
+        if(processosNaFila.size() > 0){
+          //ordena a fila por prioridade
+          processosNaFila.order((p1, p2) -> p1.getTempoChegada() - p2.getTempoChegada()); // ordenar por tempo de chegada
+          processosNaFila.order((p1, p2) -> p1.getPrioridade() - p2.getPrioridade()); // ordenar por prioridade
+
+          // atualiza o diagrama quando OCORRE PREEMPCAO
+          if(ultimoProcesso[0].toString() != processos.get(i).getCor() && !ultimoProcesso[0].toString().equals("")){
+            p = processos.get((int)ultimoProcesso[1]);
+            diagrama.add(new DiagramaGantt(memoria.get(p.getCor()), t-1, p));
+            memoria.remove(p.getCor());
+          }
+
+          if(!memoria.containsKey(processos.get(i).getCor())){
+            memoria.put(processos.get(i).getCor(), t); // armazena iniciop da exeucao do processo
+            ultimoProcesso = new Object[]{processos.get(i).getCor(), i};
+          }
+
+          //executa o processo P
+          processos.get(i).setTempoParaProcessar(processos.get(i).getTempoParaProcessar()-1);
+          if(processos.get(i).getTempoParaProcessar() == 0){
+            processos.get(i).setTempoTermino(t);
+            processos.get(i).setTerminado(true);
+
+            processosRestantes--;
+          }
+        }
       }
     }
 }
