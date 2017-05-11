@@ -42,7 +42,7 @@ public class FXMLDocumentController implements Initializable {
         ArrayList<Processo> lista = new ArrayList<>();
         lista.add(p1);lista.add(p2);lista.add(p3);lista.add(p4);lista.add(p5);
         Escalonadores escalonador=new Escalonadores(lista);
-        escalonador.SRT();//escalonar com SRT
+        escalonador.PRIO_PREEMPTIVO();
         System.out.print(escalonador.toString());
     }
 

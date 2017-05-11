@@ -60,42 +60,62 @@ public class Escalonadores
 
     public void RR(int quantum){
         ArrayList<Processo> processosOrdenados = (ArrayList<Processo>) processos.clone();
+        ArrayList<Processo> processosNaFila;
         Processo p; // processo qualquer
         int t = 0; // tempo
         int i = 0; // indice do processo
         int te = 0; // tempo percorrido
 
         processosOrdenados.sort((o1, o2) -> o1.getTempoChegada()-o2.getTempoChegada());
+        t = processosOrdenados.get(i).getTempoChegada();
         while(processosRestantes > 0){ // relógio ticka enquanto houverem processos
+            processosNaFila = (ArrayList<Processo>) processos.clone();
+            processosNaFila.sort((o1, o2) -> o1.getTempoChegada()-o2.getTempoChegada());
+
             p = processosOrdenados.get(i);
 
             te = (quantum > p.getTempoParaProcessar()) ? p.getTempoParaProcessar() : quantum;
+
+            // atualiza o diagrama
+            diagrama.add(new DiagramaGantt(t, t+te, processos.get(i)));
+
             t += te;
 
-            processosOrdenados.get(i).setTempoParaProcessar(p.getTempoParaProcessar() - quantum);
-            if(te == p.getTempoParaProcessar()){ // esse brother ja deu
+            processosOrdenados.get(i).setTempoParaProcessar(p.getTempoParaProcessar() - te);
+            if(processosOrdenados.get(i).getTempoParaProcessar() == 0){ // esse brother ja deu
                 processosOrdenados.get(i).setTempoTermino(t);
                 processosOrdenados.get(i).setTerminado(true);
 
                 processosRestantes--;
             }
 
-            for(int r=0;r < processos.size(); r++) {
+            processosNaFila.removeIf(p1 -> p1.getTerminado());
+
+            for(int r=0;r < processos.size() && processosRestantes>0; r++) {
                 i = (i + 1 >= processos.size()) ? 0 : i + 1;
 
-                if (!processosOrdenados.get(i).getTerminado() && processosOrdenados.get(i).getTempoChegada() <= t){
-                    // i válido, sair do loop
-                    r = processos.size();
-                }else{ // i inválido, passar o tempo
-                    r = 0; // resetar fila circular
 
+                if(processosNaFila.get(0).getCor().equals(processosOrdenados.get(i).getCor()) && processosOrdenados.get(i).getTempoChegada() > t){
+                    t = processosOrdenados.get(i).getTempoChegada();// pula o tempo se precisar
                 }
+
+                if(!processosOrdenados.get(i).getTerminado()) {
+                    if (processosOrdenados.get(i).getTempoChegada() <= t) {
+                        // i válido, sair do loop
+                        r = processos.size();
+                    } else { // i inválido, recomeçar
+                        r = 0; // reseta a fila, pois nenhum daqui pra frente chegou
+                    }
+                }
+
+
             }
         }
+
+        int a = 4;
     }
 
-    public void SJF()
-    {
+    public void SJF() {
          for(int i=0;processosRestantes>0;i+=0)//i é o contador do tempo
         {
              ArrayList<Processo> prontos = new ArrayList<>();
@@ -141,8 +161,7 @@ public class Escalonadores
         }
     }
 
-    public void SRT()
-    {
+    public void SRT() {
         DiagramaGantt novo =null;
         for(int i=0;processosRestantes>0;i+=0)//i é o contador do tempo
         {
@@ -252,13 +271,13 @@ public class Escalonadores
         } while(processosNaFila.size() == 0 && processosRestantes > 0);
 
         // atualiza o diagrama
-        diagrama.add(new DiagramaGantt(t, t+processos.get(i).getTempoParaProcessar(), processos.get(i)));
+        diagrama.add(new DiagramaGantt(t, t+processosNaFila.get(i).getTempoParaProcessar(), processosNaFila.get(i)));
 
         //executa o processo P
-        t += processos.get(i).getTempoParaProcessar();
-        processos.get(i).setTempoTermino(t);
-        processos.get(i).setTempoParaProcessar(0);
-        processos.get(i).setTerminado(true);
+        t += processosNaFila.get(i).getTempoParaProcessar();
+          processosNaFila.get(i).setTempoTermino(t);
+          processosNaFila.get(i).setTempoParaProcessar(0);
+          processosNaFila.get(i).setTerminado(true);
 
         processosRestantes--;
       }
@@ -268,11 +287,13 @@ public class Escalonadores
       ArrayList<Processo> processosNaFila;
       ArrayList<Processo> processosOrdenados;
       HashMap<String, Integer> memoria = new HashMap<String, Integer>(); // armazena a memoria de quando foi iniciado o processo
-      Object[] ultimoProcesso = new Object[]{"", -1}; // armazena ultimo processo a ser executado (detecta preempcao)
+      Object[] ultimoProcesso = new Object[]{"", null}; // armazena ultimo processo a ser executado (detecta preempcao)
       Processo p; // processo
       int i = 0; // indice do processo
+        int t = 0; // tempo do relogio
+        int waitingTime = 0;
 
-      for(int t=1; processosRestantes > 0; t++){ // enquanto nao executar todos os processos da lista o relogio ticka
+      for(t=1; processosRestantes > 0; t++){ // enquanto nao executar todos os processos da lista o relogio ticka
         // lista os processos na fila
         processosNaFila = (ArrayList<Processo>)processos.clone();
         processosNaFila.removeIf(p1 -> p1.getTerminado());
@@ -281,32 +302,47 @@ public class Escalonadores
         final int t1 = t;
           processosNaFila.removeIf(p1 -> p1.getTempoChegada() > t1);
 
+          if(t1 == 45){
+              int bk = 1;
+          }
+
         if(processosNaFila.size() > 0){
+
           //ordena a fila por prioridade
           processosNaFila.sort((p1, p2) -> p1.getTempoChegada() - p2.getTempoChegada()); // ordenar por tempo de chegada
           processosNaFila.sort((p1, p2) -> p1.getPrioridade() - p2.getPrioridade()); // ordenar por prioridade
 
           // atualiza o diagrama quando OCORRE PREEMPCAO
-          if(!ultimoProcesso[0].toString().equals(processos.get(i).getCor()) && !ultimoProcesso[0].toString().equals("")){
-            p = processos.get((int)ultimoProcesso[1]);
-            diagrama.add(new DiagramaGantt(memoria.get(p.getCor()), t-1, p));
+          if(!ultimoProcesso[0].toString().equals(processosNaFila.get(i).getCor()) && !ultimoProcesso[0].toString().equals("")){
+            p = (Processo) ultimoProcesso[1];
+            diagrama.add(new DiagramaGantt(memoria.get(p.getCor()), t-1-waitingTime, p));
             memoria.remove(p.getCor());
           }
 
-          if(!memoria.containsKey(processos.get(i).getCor())){
-            memoria.put(processos.get(i).getCor(), t); // armazena iniciop da exeucao do processo
-            ultimoProcesso = new Object[]{processos.get(i).getCor(), i};
+          if(!memoria.containsKey(processosNaFila.get(i).getCor())){
+            memoria.put(processosNaFila.get(i).getCor(), t); // armazena iniciop da exeucao do processo
+            ultimoProcesso = new Object[]{processosNaFila.get(i).getCor(), processosNaFila.get(i)};
           }
 
           //executa o processo P
-          processos.get(i).setTempoParaProcessar(processos.get(i).getTempoParaProcessar()-1);
-          if(processos.get(i).getTempoParaProcessar() == 0){
-            processos.get(i).setTempoTermino(t);
-            processos.get(i).setTerminado(true);
+            processosNaFila.get(i).setTempoParaProcessar(processosNaFila.get(i).getTempoParaProcessar()-1);
+          if(processosNaFila.get(i).getTempoParaProcessar() == 0){
+              processosNaFila.get(i).setTempoTermino(t);
+              processosNaFila.get(i).setTerminado(true);
 
             processosRestantes--;
           }
+
+            //reseta o contador de espera
+            waitingTime = 0;
+        }else{
+            waitingTime++;
         }
       }
+      
+      //adiciona o ultimo processo ao diagrama
+        p = (Processo) ultimoProcesso[1];
+        diagrama.add(new DiagramaGantt(memoria.get(p.getCor()), t, p));
+        memoria.remove(p.getCor());
     }
 }
