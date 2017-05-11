@@ -27,8 +27,7 @@ public class Escalonadores
         return string;
     } 
    
-    public void FIFO()
-    {
+    public void FIFO() {
         Processo proximo =processos.get(0);
         for(int i=0;processosRestantes>0;i+=0)//i é o contador do tempo
         {
@@ -56,6 +55,43 @@ public class Escalonadores
              processosRestantes--; 
         }
         //return diagrama;
+    }
+
+    public void RR(int quantum){
+        ArrayList<Processo> processosOrdenados = (ArrayList<Processo>) processos.clone();
+        ArrayList<Processo> processosRestantes = (ArrayList<Processo>) processos.clone();
+        Processo p; // processo qualquer
+        int t = 0; // tempo
+        int i = 0; // indice do processo
+        int te = 0; // tempo percorrido
+
+        processosOrdenados.sort((o1, o2) -> o1.getTempoChegada()-o2.getTempoChegada());
+        while(processosRestantes > 0){ // relógio ticka enquanto houverem processos
+            p = processosOrdenados.get(i);
+
+            te = (quantum > p.getTempoParaProcessar()) ? p.getTempoParaProcessar() : quantum;
+            t += te;
+
+            processosOrdenados.get(i).setTempoParaProcessar(p.getTempoParaProcessar() - quantum);
+            if(te == p.getTempoParaProcessar()){ // esse brother ja deu
+                processosOrdenados.get(i).setTempoTermino(t);
+                processosOrdenados.get(i).setTerminado(true);
+
+                processosRestantes--;
+            }
+
+            for(int r=0;r < processos.size(); r++) {
+                i = (i + 1 >= processos.size()) ? 0 : i + 1;
+
+                if (!processosOrdenados.get(i).getTerminado() && processosOrdenados.get(i).getTempoChegada() <= t){
+                    // i válido, sair do loop
+                    r = processos.size();
+                }else{ // i inválido, passar o tempo
+                    r = 0; // resetar fila circular
+
+                }
+            }
+        }
     }
   
 }

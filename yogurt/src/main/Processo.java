@@ -1,6 +1,8 @@
 
 package main;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author rafae
