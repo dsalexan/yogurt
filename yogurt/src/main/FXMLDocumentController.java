@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 
 /**
  *
@@ -20,14 +22,18 @@ import java.util.ResourceBundle;
  */
 public class FXMLDocumentController implements Initializable {
 
-    @FXML
-    private Label label;
 
     @FXML
-    private void handleButtonAction(ActionEvent event) {
+    private AnchorPane cadastrarprocesso;
+    @FXML
+    private AnchorPane diagramagantt;
+    @FXML
+    private AnchorPane filaprocessos;
+
+   /* private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
-    }
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
