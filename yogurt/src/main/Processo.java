@@ -9,12 +9,12 @@ import java.util.ArrayList;
  */
 public class Processo 
 {    
-    private int tempoChegada;
+    public int tempoChegada;
     private int tempoTermino;
-    private int tempoParaProcessar;
-    private int prioridade;
+    public int tempoParaProcessar;
+    public int prioridade;
     private boolean terminado;
-    private String cor;
+    public String cor;
     public Processo(int newTempoChegada, int newTempoProcessar, int newPrioridade, String newCor)
     {
         tempoChegada = newTempoChegada;
