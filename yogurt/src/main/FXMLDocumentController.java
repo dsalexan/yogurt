@@ -38,7 +38,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        System.out.println("ola");
+        /*System.out.println("ola");
         Processo p1,p2,p3,p4,p5;
         p1 = new Processo(10, 6, 2,"1");
         p2 = new Processo(12, 2, 1,"2");
@@ -49,7 +49,7 @@ public class FXMLDocumentController implements Initializable {
         lista.add(p1);lista.add(p2);lista.add(p3);lista.add(p4);lista.add(p5);
         Escalonadores escalonador=new Escalonadores(lista);
         escalonador.PRIO_PREEMPTIVO();
-        System.out.print(escalonador.toString());
+        System.out.print(escalonador.toString());*/
     }
 
 }
