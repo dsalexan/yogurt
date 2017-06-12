@@ -9,10 +9,10 @@ import java.util.ArrayList;
  */
 public class Processo 
 {    
-    private int tempoChegada;
+    public int tempoChegada;
     private int tempoTermino;
-    private int tempoParaProcessar;
-    private int prioridade;
+    public int tempoParaProcessar;
+    public int prioridade;
     private boolean terminado;
     private String cor;
     private String id;

@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Diagrama.java" afterPath="$PROJECT_DIR$/src/main/Diagrama.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DiagramaganttController.java" afterPath="$PROJECT_DIR$/src/main/DiagramaganttController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/CadastrarprocessosController.java" afterPath="$PROJECT_DIR$/src/main/CadastrarprocessosController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" afterPath="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Processo.java" afterPath="$PROJECT_DIR$/src/main/Processo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/diagramagantt.fxml" afterPath="$PROJECT_DIR$/src/main/diagramagantt.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/cadastrarprocessos.fxml" afterPath="$PROJECT_DIR$/src/main/cadastrarprocessos.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,7 +77,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiagramaganttController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DiagramaganttController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/DiagramaganttController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
@@ -94,12 +94,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Processo.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Processo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Processo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="73" column="37" lean-forward="false" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
-              <folding />
+            <state relative-caret-position="216">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+              <folding>
+                <marker date="1497238117571" expanded="false" signature="1005:1016" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1036:1042" ph=" }" />
+                <marker date="1497238117571" expanded="false" signature="1082:1093" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1119:1125" ph=" }" />
+                <marker date="1497238117571" expanded="false" signature="1188:1199" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1244:1250" ph=" }" />
+                <marker date="1497238117571" expanded="false" signature="1282:1293" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1311:1317" ph=" }" />
+                <marker date="1497238117571" expanded="false" signature="1351:1366" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1383:1389" ph=" }" />
+                <marker date="1497238117571" expanded="false" signature="1437:1452" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1479:1485" ph=" }" />
+                <marker date="1497238117571" expanded="false" signature="1530:1545" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1566:1572" ph=" }" />
+                <marker date="1497238117571" expanded="false" signature="1605:1620" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1640:1646" ph=" }" />
+                <marker date="1497238117571" expanded="false" signature="1673:1688" ph=" { " />
+                <marker date="1497238117571" expanded="false" signature="1699:1705" ph=" }" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -169,9 +188,9 @@
         <option value="$PROJECT_DIR$/src/main/Escalonadores.java" />
         <option value="$PROJECT_DIR$/src/main/DiagramaGantt.java" />
         <option value="$PROJECT_DIR$/src/main/Diagrama.java" />
-        <option value="$PROJECT_DIR$/src/main/Processo.java" />
         <option value="$PROJECT_DIR$/src/main/DiagramaganttController.java" />
         <option value="$PROJECT_DIR$/src/main/diagramagantt.fxml" />
+        <option value="$PROJECT_DIR$/src/main/Processo.java" />
       </list>
     </option>
   </component>
@@ -931,14 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Processo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="73" column="37" lean-forward="false" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Escalonadores.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -960,6 +971,33 @@
             <element signature="e#1451#1466#0" expanded="true" />
             <element signature="method#loadDiagram#0;class#DiagramaganttController#0" expanded="false" />
             <element signature="e#4498#4546#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Processo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <marker date="1497238117571" expanded="false" signature="1005:1016" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1036:1042" ph=" }" />
+            <marker date="1497238117571" expanded="false" signature="1082:1093" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1119:1125" ph=" }" />
+            <marker date="1497238117571" expanded="false" signature="1188:1199" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1244:1250" ph=" }" />
+            <marker date="1497238117571" expanded="false" signature="1282:1293" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1311:1317" ph=" }" />
+            <marker date="1497238117571" expanded="false" signature="1351:1366" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1383:1389" ph=" }" />
+            <marker date="1497238117571" expanded="false" signature="1437:1452" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1479:1485" ph=" }" />
+            <marker date="1497238117571" expanded="false" signature="1530:1545" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1566:1572" ph=" }" />
+            <marker date="1497238117571" expanded="false" signature="1605:1620" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1640:1646" ph=" }" />
+            <marker date="1497238117571" expanded="false" signature="1673:1688" ph=" { " />
+            <marker date="1497238117571" expanded="false" signature="1699:1705" ph=" }" />
           </folding>
         </state>
       </provider>

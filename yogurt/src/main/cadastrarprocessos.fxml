@@ -16,20 +16,22 @@
       <TextField fx:id="txtTempoChegada" layoutX="140.0" layoutY="49.0" prefHeight="25.0" prefWidth="39.0" />
       <TextField fx:id="txtTempoProcessar" layoutX="140.0" layoutY="82.0" prefHeight="25.0" prefWidth="39.0" />
       <TextField fx:id="txtPrioridade" layoutX="140.0" layoutY="117.0" prefHeight="25.0" prefWidth="39.0" />
-      <Label layoutX="14.0" layoutY="22.0" text="Label">
+      <Label fx:id="lblProcesso" layoutX="14.0" layoutY="22.0" text="Label">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <ColorPicker fx:id="cbCor" layoutX="200.0" layoutY="82.0" />
       <Label layoutX="202.0" layoutY="53.0" text="Cor de Identificação :" />
-      <Button fx:id="btnCriar" layoutX="197.0" layoutY="168.0" mnemonicParsing="false" onAction="#clickProcesso" prefHeight="25.0" prefWidth="97.0" text="Criar Processo" />
-      <Button fx:id="btnRemover" layoutX="301.0" layoutY="168.0" mnemonicParsing="false" onAction="#clickRemover" text="Remover Processo" />
+      <Button fx:id="btnCriar" layoutX="13.0" layoutY="150.0" mnemonicParsing="false" onAction="#clickCriarProcesso" prefHeight="25.0" prefWidth="97.0" text="Criar Processo" />
+      <Button fx:id="btnRemover" layoutX="233.0" layoutY="150.0" mnemonicParsing="false" onAction="#clickRemover" text="Remover Processo" />
       <Button fx:id="btnProcessar" layoutX="197.0" layoutY="248.0" mnemonicParsing="false" onAction="#clickProcessar" text="Processar" />
-      <ComboBox fx:id="cbAlgoritmo" layoutX="13.0" layoutY="248.0" prefHeight="25.0" prefWidth="156.0" />
-      <Label layoutX="14.0" layoutY="216.0" text="Algoritmo de Escalonamento:" />
-      <Button fx:id="btnLimpar" layoutX="270.0" layoutY="248.0" mnemonicParsing="false" onAction="#clickLimpar" text="Limpar fila de processos" />
-      <Label layoutX="202.0" layoutY="121.0" text="Quantum :" />
-      <TextField fx:id="txtPrioridade1" layoutX="275.0" layoutY="117.0" prefHeight="25.0" prefWidth="39.0" />
+      <ComboBox fx:id="cbAlgoritmo" layoutX="17.0" layoutY="213.0" onAction="#escolhaComboAlgoritmo" prefHeight="25.0" prefWidth="156.0" />
+      <Label layoutX="16.0" layoutY="189.0" text="Algoritmo de Escalonamento:" />
+      <Button fx:id="btnLimparFila" layoutX="270.0" layoutY="248.0" mnemonicParsing="false" onAction="#clickLimparFila" text="Limpar Fila de Processos" />
+      <Label layoutX="16.0" layoutY="252.0" text="Quantum :" />
+      <TextField fx:id="txtQuantum" layoutX="75.0" layoutY="248.0" prefHeight="25.0" prefWidth="39.0" />
+      <Button fx:id="btnAtualizar" layoutX="115.0" layoutY="150.0" mnemonicParsing="false" onAction="#clickAtualizar" prefHeight="25.0" prefWidth="114.0" text="Atualizar Processo" />
+      <Button fx:id="btnLimpar" layoutX="350.0" layoutY="150.0" mnemonicParsing="false" onAction="#clickLimpar" prefHeight="25.0" prefWidth="67.0" text="Limpar" />
    </children>
 </fx:root>
