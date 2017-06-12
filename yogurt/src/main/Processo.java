@@ -14,7 +14,7 @@ public class Processo
     public int tempoParaProcessar;
     public int prioridade;
     private boolean terminado;
-    private String cor;
+    public String cor;
     private String id;
     public Processo(int newTempoChegada, int newTempoProcessar, int newPrioridade, String newCor)
     {
