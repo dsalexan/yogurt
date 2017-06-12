@@ -15,6 +15,7 @@ public class Processo
     private int prioridade;
     private boolean terminado;
     private String cor;
+    private String id;
     public Processo(int newTempoChegada, int newTempoProcessar, int newPrioridade, String newCor)
     {
         tempoChegada = newTempoChegada;
@@ -23,6 +24,17 @@ public class Processo
         prioridade = newPrioridade;
         terminado = false;
         cor = newCor;
+        id = newCor;
+    }
+    public Processo(int newTempoChegada, int newTempoProcessar, int newPrioridade, String newId, String newCor)
+    {
+        tempoChegada = newTempoChegada;
+        tempoTermino=-1;
+        tempoParaProcessar = newTempoProcessar;
+        prioridade = newPrioridade;
+        terminado = false;
+        cor = newCor;
+        id = newId;
     }
      public int getTempoChegada() {
         return tempoChegada;
@@ -59,6 +71,7 @@ public class Processo
     {
         return cor;
     }
+    public String getId() {return id;}
     public String toString()
     {
         return cor;
