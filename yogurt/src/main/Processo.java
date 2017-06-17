@@ -16,8 +16,7 @@ public class Processo
     private boolean terminado;
     public String cor;
     public String id;
-    public Processo(int newTempoChegada, int newTempoProcessar, int newPrioridade, String newId, String newCor)
-    {
+    public Processo(int newTempoChegada, int newTempoProcessar, int newPrioridade, String newId, String newCor) {
         tempoChegada = newTempoChegada;
         tempoTermino=-1;
         tempoParaProcessar = newTempoProcessar;
@@ -26,7 +25,13 @@ public class Processo
         cor = newCor;
         id = newId;
     }
-     public int getTempoChegada() {
+
+    public Processo(Processo original){
+        this(original.tempoChegada, original.tempoParaProcessar, original.prioridade, original.id, original.cor);
+        this.tempoTermino = original.tempoTermino;
+    }
+
+    public int getTempoChegada() {
         return tempoChegada;
     }
 

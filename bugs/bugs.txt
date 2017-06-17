@@ -1,0 +1,3 @@
+[FIXED]- Quando atualiza o mesmo processo duas vezes seguidas da erro, mesmo sem mudar nada
+[FIXED]- Usando a lista de processos especificada em bug#2.png e pedidindo FIFO da erro de alguma coisa nullable
+[FIXED]- Quando exclui o pid 2 da lista de bug#2.png e manda re-processar, da um erro fudidao. Se exclui antes de processar pela primeira vez, nao da erro n

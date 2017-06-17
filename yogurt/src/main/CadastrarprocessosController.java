@@ -75,6 +75,7 @@ public class CadastrarprocessosController implements Initializable {
 
     public void loadProcess(Processo p){
         processoAtual = p;
+
         txtId.setText(processoAtual.getId());
         txtTempoChegada.setText(String.valueOf(processoAtual.getTempoChegada()));
         txtPrioridade.setText(String.valueOf(processoAtual.getPrioridade()));
@@ -93,7 +94,7 @@ public class CadastrarprocessosController implements Initializable {
         Processo p;
         try
         {   
-            if(verificarMesmaCor(cbCor.getValue().toString())) //verifica se essa cor ja existe em algum processo
+            if(verificarMesmaCor(cbCor.getValue().toString(), null)) //verifica se essa cor ja existe em algum processo
                 JOptionPane.showMessageDialog(new JFrame(),  "Ja existe um processo com essa cor.");
             else {
                 if (verificarMesmoId(txtId.getText()))
@@ -146,7 +147,7 @@ public class CadastrarprocessosController implements Initializable {
            }
            else
                 controlador.Processar(cbAlgoritmo.getValue());
-            
+
            System.out.println(controlador.escalonador.toString());
         }
         else
@@ -169,6 +170,8 @@ public class CadastrarprocessosController implements Initializable {
 
         btnAtualizar.setDisable(true);
         btnRemover.setDisable(true);
+
+        processoAtual = null;
     }
 
     @FXML
@@ -188,21 +191,17 @@ public class CadastrarprocessosController implements Initializable {
             int tempoProcessar = Integer.parseInt(txtTempoProcessar.getText());
             int prioridade =  Integer.parseInt(txtPrioridade.getText());
 
-            if(verificarMesmaCor(cbCor.getValue().toString())) //verifica se essa cor ja existe em algum processo
+            if(verificarMesmaCor(cbCor.getValue().toString(), processoAtual.getId())) //verifica se essa cor ja existe em algum processo
                 JOptionPane.showMessageDialog(new JFrame(),  "Ja existe um processo com essa cor");
             else{
-                if (verificarMesmoId(txtId.getText()))
-                    JOptionPane.showMessageDialog(new JFrame(), "Já existe um processo com esse id.");
-                else{
-                    processoAtual.id = txtId.getText();
-                    processoAtual.cor = cbCor.getValue().toString();
-                    processoAtual.prioridade = prioridade;
-                    processoAtual.tempoChegada = tempoChegada;
-                    processoAtual.tempoParaProcessar = tempoProcessar;
+                processoAtual.id = txtId.getText();
+                processoAtual.cor = cbCor.getValue().toString();
+                processoAtual.prioridade = prioridade;
+                processoAtual.tempoChegada = tempoChegada;
+                processoAtual.tempoParaProcessar = tempoProcessar;
 
-                    controlador.updateProcess(processoAtual);
-                    clickLimpar(event);
-                }
+                controlador.updateProcess(processoAtual);
+                clickLimpar(event);
             }
         }
         catch (NumberFormatException ex) 
@@ -211,15 +210,18 @@ public class CadastrarprocessosController implements Initializable {
         }
     }
     
-    private boolean verificarMesmaCor(String cor) {
-        for(int i=0; i<controlador.listaProcessos.size();i++)
-            if(controlador.listaProcessos.get(i).cor.equals(cor)) return true;
+    private boolean verificarMesmaCor(String cor, String id) {
+        for(Processo p : controlador.listaProcessos){
+            if(id == null) { if(p.getCor().equals(cor)) return true; }
+            else { if(p.getCor().equals(cor) && !p.getId().equals(id)) return true; }
+
+        }
         return false;
     }
 
     private boolean verificarMesmoId(String id){
         for(Processo p : controlador.listaProcessos){
-            if(p.getId() == id) return true;
+            if(p.getId().equals(id)) return true;
         }
         return false;
     }

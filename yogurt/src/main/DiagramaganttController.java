@@ -79,6 +79,12 @@ public class DiagramaganttController implements Initializable {
     // CAPSULE METHODS //
 
     public void loadDiagram(Diagrama d){
+        //clear all
+        hbxTimeline.getChildren().clear();
+        hbxBoxes.getChildren().clear();
+        hbxBoxes.setPrefWidth(0.0);
+        hbxTimeline.setPrefWidth(0.0);
+
         // create timeline
         drawTimeline(d, hbxTimeline);
 
@@ -152,7 +158,9 @@ public class DiagramaganttController implements Initializable {
                 boxes.setPrefWidth(currentSpace);
             }
 
-            boxes.getChildren().add(generateRegister(String.valueOf(r.processo.getId()), width, r.processo.getCor()));
+            String text = r.processo != null ? r.processo.getId() : "-";
+            String cor = r.processo != null ? r.processo.getCor() : "#fafafa";
+            boxes.getChildren().add(generateRegister(text, width, cor));
         }
 
         double filledSpace = diagram.getTempoFinal() * (22.0 + 1.0) - 1.0;

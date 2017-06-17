@@ -29,10 +29,10 @@ public class ControladorGeralSingleton {
         diagrama = null;
 
 
-        Processo p1 =  new Processo(0, 1, 1, "1", "#3399ff");
-        Processo p2 =  new Processo(0, 1, 1, "2", "80B3FF");
-        Processo p3 =  new Processo(0, 1, 1, "3", "FF8080");
-        Processo p4 =  new Processo(0, 1, 1, "4", "AE592D");
+        Processo p1 =  new Processo(1, 2, 1, "1", "#3399ff");
+        Processo p2 =  new Processo(2, 4, 1, "2", "80B3FF");
+        Processo p3 =  new Processo(4, 7, 3, "3", "FF8080");
+        Processo p4 =  new Processo(2, 5, 2, "4", "AE592D");
 
         listaProcessos.add(p1);
         listaProcessos.add(p2);
@@ -48,7 +48,13 @@ public class ControladorGeralSingleton {
         return instancia;
     }
     private ArrayList<Processo> copiaLista() {
-        return (ArrayList<Processo>) listaProcessos.clone();
+        ArrayList<Processo> clone = new ArrayList<>();
+
+        for(Processo p: listaProcessos){
+            clone.add(new Processo(p));
+        }
+
+        return clone;
     }
 
 
