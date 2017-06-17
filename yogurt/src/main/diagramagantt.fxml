@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<fx:root prefHeight="84.0" prefWidth="566.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DiagramaganttController">
+<fx:root prefHeight="84.0" prefWidth="639.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DiagramaganttController">
    <children>
-      <ScrollPane prefHeight="84.0" prefWidth="566.0">
+      <ScrollPane prefHeight="82.0" prefWidth="639.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="84.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
-                  <HBox fx:id="hbxTimeline" layoutX="10.0" layoutY="10.0" prefHeight="15.0" prefWidth="531.0" style="-fx-padding: 0 0 0 3.5; -fx-spacing: 7.5;">
+                  <HBox fx:id="hbxTimeline" layoutX="10.0" layoutY="10.0" prefHeight="15.0" prefWidth="605.0" style="-fx-padding: 0 0 0 3.5; -fx-spacing: 7.5;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                   </HBox>
-                   <HBox fx:id="hbxBoxes" layoutX="21.0" layoutY="31.0" prefHeight="22.0" prefWidth="520.0" style="-fx-background-color: black; -fx-spacing: 1; -fx-padding: 0 0 0 1;">
+                   <HBox fx:id="hbxBoxes" layoutX="21.0" layoutY="31.0" prefHeight="22.0" prefWidth="595.0" style="-fx-background-color: black; -fx-spacing: 1; -fx-padding: 0 0 0 1;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

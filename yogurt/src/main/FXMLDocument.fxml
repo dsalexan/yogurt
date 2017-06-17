@@ -12,7 +12,7 @@
       </TitledPane>
       <TitledPane animated="false" layoutX="15.0" layoutY="368.0" prefHeight="110.0" prefWidth="641.0" text="Diagrama de Gantt">
         <content>
-          <AnchorPane fx:id="diagramagantt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="84.0" prefWidth="566.0" />
+          <AnchorPane fx:id="diagramagantt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="84.0" prefWidth="639.0" />
         </content>
       </TitledPane>
       <TitledPane animated="false" layoutX="14.0" layoutY="33.0" prefHeight="325.0" prefWidth="204.0" text="Fila de Processos">
