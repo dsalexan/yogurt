@@ -50,6 +50,7 @@ public class DiagramaganttController implements Initializable {
         // TODO
 
         //create dummy-test diagram
+        /*
         Processo p1 =  new Processo(0, 1, 1, "1", "#3399ff");
         Processo p2 =  new Processo(0, 1, 1, "2", "80B3FF");
         Processo p3 =  new Processo(0, 1, 1, "3", "FF8080");
@@ -71,7 +72,7 @@ public class DiagramaganttController implements Initializable {
 
         //parse DiagramaGantt to Diagrama
         diagram = new Diagrama(diagramG);
-        loadDiagram(diagram);
+        loadDiagram(diagram);*/
 
     }
 

@@ -47,44 +47,40 @@ public class ControladorGeralSingleton {
         }
         return instancia;
     }
-    public void Processar(String algoritmo) {
-        escalonador = new Escalonadores(copiaLista()); // manda uma copia (não a referencia)
-        switch (algoritmo)
-        {
-            case "FIFO":     
-                escalonador.FIFO();
-            break;
-            case "SJF":  
-                escalonador.SJF();
-            break;
-            case "SRT":  
-                escalonador.SRT();
-            break;
-            case "Prioridade":  
-                escalonador.PRIO();
-            break;
-            case "Prioridade Preemptivo":  
-                escalonador.PRIO_PREEMPTIVO();
-            break;
-        }
-        diagrama = escalonador.diagrama;
+    private ArrayList<Processo> copiaLista() {
+        return (ArrayList<Processo>) listaProcessos.clone();
     }
+
+
+    public void Processar(String algoritmo) {
+        Processar(algoritmo, -1);
+    }
+
     public void Processar(String algoritmo, int quantum){ //só RR1
         escalonador = new Escalonadores(copiaLista());
-        escalonador.RR(quantum);
-        diagrama = escalonador.diagrama;
-    }
-    private ArrayList<Processo> copiaLista() {
-        ArrayList<Processo> copia = new ArrayList<>();
-        
-        for(int i=0; i<listaProcessos.size(); i++)
+        switch (algoritmo)
         {
-            Processo p1 = new Processo(listaProcessos.get(i).tempoChegada, listaProcessos.get(i).tempoParaProcessar, listaProcessos.get(i).prioridade, listaProcessos.get(i).cor);
-            copia.add(p1);
+            case "FIFO":
+                escalonador.FIFO();
+                break;
+            case "SJF":
+                escalonador.SJF();
+                break;
+            case "SRT":
+                escalonador.SRT();
+                break;
+            case "Prioridade":
+                escalonador.PRIO();
+                break;
+            case "Prioridade Preemptivo":
+                escalonador.PRIO_PREEMPTIVO();
+                break;
+            case "RR":
+                escalonador.RR(quantum);
+                break;
         }
-            
-       
-        return copia;
+        diagrama = escalonador.diagrama;
+        updateDiagram();
     }
 
     public void updateProcessScreen(Processo p){
@@ -107,5 +103,10 @@ public class ControladorGeralSingleton {
         }
 
         updateProcessStack();
+    }
+    public void updateDiagram(){
+        //System.out.println("UPDATING DIAGRAM");
+        Diagrama d = new Diagrama(diagrama);
+        ProcessDiagram.loadDiagram(d);
     }
 }

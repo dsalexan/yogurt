@@ -16,16 +16,6 @@ public class Processo
     private boolean terminado;
     public String cor;
     public String id;
-    public Processo(int newTempoChegada, int newTempoProcessar, int newPrioridade, String newCor)
-    {
-        tempoChegada = newTempoChegada;
-        tempoTermino=-1;
-        tempoParaProcessar = newTempoProcessar;
-        prioridade = newPrioridade;
-        terminado = false;
-        cor = newCor;
-        id = newCor;
-    }
     public Processo(int newTempoChegada, int newTempoProcessar, int newPrioridade, String newId, String newCor)
     {
         tempoChegada = newTempoChegada;
