@@ -37,6 +37,8 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ControladorGeralSingleton.getInstancia();
+
         // TODO
         /*System.out.println("ola");
         Processo p1,p2,p3,p4,p5;

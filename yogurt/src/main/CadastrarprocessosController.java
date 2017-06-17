@@ -28,6 +28,8 @@ import javax.swing.JOptionPane;
 public class CadastrarprocessosController implements Initializable {
 
     @FXML
+    private TextField txtId;
+    @FXML
     private TextField txtTempoChegada;
     @FXML
     private TextField txtTempoProcessar;
@@ -53,81 +55,81 @@ public class CadastrarprocessosController implements Initializable {
     private Button btnAtualizar;
     
     ControladorGeralSingleton controlador ;
-     
-   
-    @FXML
-    private Label lblProcesso;
+    Processo processoAtual;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        controlador= ControladorGeralSingleton.getInstancia();
+        controlador.ProcessScreen = this;
+
         // TODO
         cbAlgoritmo.getItems().addAll("FIFO","RR","SJF","SRT","Prioridade", "Prioridade Preemptivo");
         cbAlgoritmo.setValue("FIFO");
-        controlador= ControladorGeralSingleton.getInstancia();
-        lblProcesso.setText("Processo "+(controlador.processoAtual));
         txtQuantum.setDisable(true);
-      /*
-        if(controlador.processoAtual <= controlador.listaProcessos.size()) // a tela tem que mostrar um processo ja cadastrado
-       {
-           cbCor.setValue(Color.web(controlador.listaProcessos.get(controlador.processoAtual-1).cor));
-           txtPrioridade.setText("" + (controlador.listaProcessos.get(controlador.processoAtual-1).prioridade) );
-           txtTempoChegada.setText("" + (controlador.listaProcessos.get(controlador.processoAtual-1).tempoChegada) );
-           txtTempoProcessar.setText("" + (controlador.listaProcessos.get(controlador.processoAtual-1).tempoParaProcessar) );
-       }*/
+        processoAtual = null;
        
-    }    
+    }
+
+    public void loadProcess(Processo p){
+        processoAtual = p;
+        txtId.setText(processoAtual.getId());
+        txtTempoChegada.setText(String.valueOf(processoAtual.getTempoChegada()));
+        txtPrioridade.setText(String.valueOf(processoAtual.getPrioridade()));
+        txtTempoProcessar.setText(String.valueOf(processoAtual.getTempoParaProcessar()));
+        cbCor.setValue(Color.web(processoAtual.getCor()));
+
+        txtId.setDisable(true);
+
+        btnAtualizar.setDisable(false);
+        btnRemover.setDisable(false);
+    }
+
+
     @FXML
-    private void clickCriarProcesso(ActionEvent event) 
-    {
-        if(controlador.processoAtual<= controlador.listaProcessos.size())
-        {
-            controlador.processoAtual=controlador.listaProcessos.size()+1;
-        }
+    private void clickCriarProcesso(ActionEvent event) {
+        Processo p;
         try
         {   
-            if( !verificarMesmaCor(cbCor.getValue().toString())) //verifica se essa cor ja existe em algum processo
-            {
-                int tempoChegada = Integer.parseInt(txtTempoChegada.getText());
-                int tempoProcessar = Integer.parseInt(txtTempoProcessar.getText());
-                int prioridade =  Integer.parseInt(txtPrioridade.getText());
-              
-                Processo p = new Processo(tempoChegada,tempoProcessar ,prioridade, cbCor.getValue().toString());
-                controlador.listaProcessos.add(p);         
-                controlador.processoAtual = controlador.listaProcessos.size()+1; // para aparecer no label qual é o proximo processo a ser cadastrado
-                clickLimpar(event);
+            if(verificarMesmaCor(cbCor.getValue().toString())) //verifica se essa cor ja existe em algum processo
+                JOptionPane.showMessageDialog(new JFrame(),  "Ja existe um processo com essa cor.");
+            else {
+                if (verificarMesmoId(txtId.getText()))
+                    JOptionPane.showMessageDialog(new JFrame(), "Já existe um processo com esse id.");
+                else{
+                    String id = txtId.getText();
+                    int tempoChegada = Integer.parseInt(txtTempoChegada.getText());
+                    int tempoProcessar = Integer.parseInt(txtTempoProcessar.getText());
+                    int prioridade = Integer.parseInt(txtPrioridade.getText());
+
+                    p = new Processo(tempoChegada, tempoProcessar, prioridade, id, cbCor.getValue().toString());
+                    controlador.listaProcessos.add(p);
+                    clickLimpar(event);
+                }
             }
-            else
-                JOptionPane.showMessageDialog(new JFrame(),  "Ja existe um processo com esse identificador de cor");
             
         } catch (NumberFormatException ex) 
         {
-          JOptionPane.showMessageDialog(new JFrame(),  "Preencha os campos corretamente");
+          JOptionPane.showMessageDialog(new JFrame(),  "Preencha os campos corretamente.");
         }
-        
+
           //refresh na tela de fila de processos
+        controlador.updateProcessStack();
     }
     
     @FXML
     private void clickRemover(ActionEvent event) {
-        if(controlador.processoAtual <= controlador.listaProcessos.size())
-        {
-            controlador.listaProcessos.remove(controlador.processoAtual -1);
-            controlador.processoAtual = controlador.listaProcessos.size()+1;
-            clickLimpar(event);
-        }
-        else
-        {
-             JOptionPane.showMessageDialog(new JFrame(),  "Esse processo não está cadastrado");
-        }
-        
-          //refresh na tela de fila de processos
+        controlador.listaProcessos.remove(processoAtual);
+        clickLimpar(event);
+
+        //refresh na tela de fila de processos
+        controlador.updateProcessStack();
     }
 
     @FXML
-    private void clickProcessar(ActionEvent event) 
-    {
+    private void clickProcessar(ActionEvent event) {
         if(controlador.listaProcessos.size()>0)
         {
             if(cbAlgoritmo.getValue().equals("RR"))
@@ -160,47 +162,47 @@ public class CadastrarprocessosController implements Initializable {
         txtQuantum.setText("");
         txtTempoChegada.setText("");
         txtTempoProcessar.setText("");
-        lblProcesso.setText("Processo "+(controlador.processoAtual));
+        txtId.setText("");
+        cbCor.setValue(Color.WHITE);
+
+        txtId.setDisable(false);
+
+        btnAtualizar.setDisable(true);
+        btnRemover.setDisable(true);
     }
 
     @FXML
-    private void clickLimparFila(ActionEvent event) 
-    {
-        controlador.processoAtual=1;
-        for(int i= controlador.listaProcessos.size()-1 ;i>=0;i--) 
-            controlador.listaProcessos.remove(i);
+    private void clickLimparFila(ActionEvent event) {
+        controlador.listaProcessos.clear();
         
         clickLimpar(event);
         //refresh na tela de fila de processos
+        controlador.updateProcessStack();
     }
 
     @FXML
-    private void clickAtualizar(ActionEvent event) 
-    {
-        int i = controlador.processoAtual; //i processos de 1 a n, para dar get usar i-1 
+    private void clickAtualizar(ActionEvent event) {
         try
         {
             int tempoChegada = Integer.parseInt(txtTempoChegada.getText());
             int tempoProcessar = Integer.parseInt(txtTempoProcessar.getText());
             int prioridade =  Integer.parseInt(txtPrioridade.getText());
-            if(i<= controlador.listaProcessos.size())
-            {
-                if( !verificarMesmaCor(cbCor.getValue().toString())) //verifica se essa cor ja existe em algum processo
-                {  
-                    controlador.listaProcessos.get(i-1).cor = cbCor.getValue().toString();
-                    controlador.listaProcessos.get(i-1).prioridade = prioridade;
-                    controlador.listaProcessos.get(i-1).tempoChegada = tempoChegada;
-                    controlador.listaProcessos.get(i-1).tempoParaProcessar = tempoProcessar;
-                    
-                    controlador.processoAtual = controlador.listaProcessos.size()+1;
+
+            if(verificarMesmaCor(cbCor.getValue().toString())) //verifica se essa cor ja existe em algum processo
+                JOptionPane.showMessageDialog(new JFrame(),  "Ja existe um processo com essa cor");
+            else{
+                if (verificarMesmoId(txtId.getText()))
+                    JOptionPane.showMessageDialog(new JFrame(), "Já existe um processo com esse id.");
+                else{
+                    processoAtual.id = txtId.getText();
+                    processoAtual.cor = cbCor.getValue().toString();
+                    processoAtual.prioridade = prioridade;
+                    processoAtual.tempoChegada = tempoChegada;
+                    processoAtual.tempoParaProcessar = tempoProcessar;
+
+                    controlador.updateProcess(processoAtual);
                     clickLimpar(event);
                 }
-                else
-                    JOptionPane.showMessageDialog(new JFrame(),  "Ja existe um processo com esse identificador de cor");
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(new JFrame(),  "Processo não cadastrado ainda");
             }
         }
         catch (NumberFormatException ex) 
@@ -209,16 +211,21 @@ public class CadastrarprocessosController implements Initializable {
         }
     }
     
-    private boolean verificarMesmaCor(String cor)
-    {
+    private boolean verificarMesmaCor(String cor) {
         for(int i=0; i<controlador.listaProcessos.size();i++)
             if(controlador.listaProcessos.get(i).cor.equals(cor)) return true;
         return false;
     }
 
+    private boolean verificarMesmoId(String id){
+        for(Processo p : controlador.listaProcessos){
+            if(p.getId() == id) return true;
+        }
+        return false;
+    }
+
     @FXML
-    private void escolhaComboAlgoritmo(ActionEvent event) 
-    {
+    private void escolhaComboAlgoritmo(ActionEvent event) {
        if(cbAlgoritmo.getValue().equals("RR"))
        {
            txtQuantum.setDisable(false);

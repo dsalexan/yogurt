@@ -41,8 +41,11 @@ public class FilaprocessosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         CONTROL = ControladorGeralSingleton.getInstancia();
+        CONTROL.ProcessStack = this;
 
+        updateStack();
         // TODO
+        /*
         Processo p1 =  new Processo(0, 1, 1, "1", "#3399ff");
         Processo p2 =  new Processo(0, 1, 1, "2", "80B3FF");
         Processo p3 =  new Processo(0, 1, 1, "3", "FF8080");
@@ -52,7 +55,16 @@ public class FilaprocessosController implements Initializable {
         generateProcess(p2);
         generateProcess(p3);
 
-        removeProcess(p2.getId());
+        removeProcess(p2.getId());*/
+    }
+
+    void updateStack(){
+        vbxProcessos.getChildren().clear();
+        vbxProcessos.setPrefHeight(0.0);
+
+        for(Processo p : CONTROL.listaProcessos){
+            generateProcess(p);
+        }
     }
 
     void generateProcess(Processo p){
@@ -87,26 +99,25 @@ public class FilaprocessosController implements Initializable {
 
         final Button edit = new Button("Editar");
         edit.setFont(new Font(11.0));
-        edit.setLayoutX(116.0);
+        edit.setLayoutX(106.0);
         edit.setLayoutY(50.0);
         edit.setUserData(p);
         edit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Processo process = (Processo)((Button)event.getSource()).getUserData();
-                //System.out.println("EDIT PID " + process.getId());
-                CONTROL.updateProcess(process);
+                CONTROL.updateProcessScreen(process);
             }
         });
 
         final Button remove = new Button("X");
         remove.setFont(new Font(11.0));
-        remove.setLayoutX(169.0);
+        remove.setLayoutX(159.0);
         remove.setLayoutY(50.0);
         remove.setUserData(p);
         remove.setOnAction(event -> {
             Processo process = (Processo)((Button)event.getSource()).getUserData();
-            //System.out.println("REMOVE PID " + process.getId());
+            CONTROL.listaProcessos.remove(process);
             removeProcess(process.getId());
         });
 

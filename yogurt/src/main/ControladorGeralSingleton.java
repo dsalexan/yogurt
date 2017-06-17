@@ -18,16 +18,26 @@ public class ControladorGeralSingleton {
     public ArrayList<DiagramaGantt> diagrama;
     public int processoAtual; //começando do indice 1 !!!
 
+
+    public CadastrarprocessosController ProcessScreen;
+    public FilaprocessosController ProcessStack;
+    public DiagramaganttController ProcessDiagram;
+
     private ControladorGeralSingleton() {
         listaProcessos = new ArrayList<>();
         escalonador = null;
         diagrama = null;
-        /*
-        processoAtual=2;
-        Processo p = new Processo(0, 10, 5, "ffb366");
-        Processo p2 = new Processo(0, 20, 5, "ffb365");
-        listaProcessos.add(p);
-        listaProcessos.add(p2);*/
+
+
+        Processo p1 =  new Processo(0, 1, 1, "1", "#3399ff");
+        Processo p2 =  new Processo(0, 1, 1, "2", "80B3FF");
+        Processo p3 =  new Processo(0, 1, 1, "3", "FF8080");
+        Processo p4 =  new Processo(0, 1, 1, "4", "AE592D");
+
+        listaProcessos.add(p1);
+        listaProcessos.add(p2);
+        listaProcessos.add(p3);
+        listaProcessos.add(p4);
     }
 
     public static ControladorGeralSingleton getInstancia() {
@@ -77,7 +87,25 @@ public class ControladorGeralSingleton {
         return copia;
     }
 
-    public void updateProcess(Processo p){
-        System.out.println("UPDATE PID " + p.getId());
+    public void updateProcessScreen(Processo p){
+        this.ProcessScreen.loadProcess(p);
+    }
+    public void updateProcessStack() {
+        this.ProcessStack.updateStack();
+    }
+    public void updateProcess(Processo p) {
+        for(int i = 0; i < listaProcessos.size(); i++){
+            if(listaProcessos.get(i).getId().equals(p.getId())){
+                listaProcessos.get(i).id = p.getId();
+                listaProcessos.get(i).cor = p.getCor();
+                listaProcessos.get(i).tempoChegada = p.getTempoChegada();
+                listaProcessos.get(i).tempoParaProcessar = p.getTempoParaProcessar();
+                listaProcessos.get(i).prioridade = p.getPrioridade();
+
+                break;
+            }
+        }
+
+        updateProcessStack();
     }
 }

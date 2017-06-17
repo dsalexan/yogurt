@@ -37,11 +37,16 @@ public class DiagramaganttController implements Initializable {
 
     private Diagrama diagram;
 
+
+    private ControladorGeralSingleton CONTROL;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        CONTROL = ControladorGeralSingleton.getInstancia();
+        CONTROL.ProcessDiagram = this;
+
         // TODO
 
         //create dummy-test diagram
