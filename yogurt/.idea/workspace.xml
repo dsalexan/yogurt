@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" afterPath="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/FXMLDocument.fxml" afterPath="$PROJECT_DIR$/src/main/FXMLDocument.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/FilaprocessosController.java" afterPath="$PROJECT_DIR$/src/main/FilaprocessosController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/diagramagantt.fxml" afterPath="$PROJECT_DIR$/src/main/diagramagantt.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/filaprocessos.fxml" afterPath="$PROJECT_DIR$/src/main/filaprocessos.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/CadastrarprocessosController.java" afterPath="$PROJECT_DIR$/src/main/CadastrarprocessosController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,11 +61,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CadastrarprocessosController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CadastrarprocessosController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/CadastrarprocessosController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="75" column="81" lean-forward="true" selection-start-line="75" selection-start-column="81" selection-end-line="75" selection-end-column="81" />
+            <state relative-caret-position="117">
+              <caret line="69" column="36" lean-forward="true" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
               <folding>
                 <element signature="docComment;class#CadastrarprocessosController#0" expanded="false" />
                 <element signature="docComment;method#initialize#0;class#CadastrarprocessosController#0" expanded="false" />
@@ -85,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControladorGeralSingleton.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ControladorGeralSingleton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ControladorGeralSingleton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+            <state relative-caret-position="221">
+              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding>
                 <element signature="docComment;class#ControladorGeralSingleton#0" expanded="false" />
                 <element signature="method#getInstancia#0;class#ControladorGeralSingleton#0" expanded="false" />
@@ -106,7 +102,7 @@
       <file leaf-file-name="DiagramaganttController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/DiagramaganttController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11">
+            <state relative-caret-position="958">
               <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -178,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/main/diagramagantt.fxml" />
         <option value="$PROJECT_DIR$/src/main/FilaprocessosController.java" />
         <option value="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" />
+        <option value="$PROJECT_DIR$/src/main/CadastrarprocessosController.java" />
       </list>
     </option>
   </component>
@@ -541,12 +538,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.303681" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.303681" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24203822" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24203822" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -937,16 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/DiagramaganttController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/FilaprocessosController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -958,10 +945,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/DiagramaganttController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="958">
+          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ControladorGeralSingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="docComment;class#ControladorGeralSingleton#0" expanded="false" />
+            <element signature="method#getInstancia#0;class#ControladorGeralSingleton#0" expanded="false" />
+            <element signature="method#Processar#0;class#ControladorGeralSingleton#0" expanded="false" />
+            <element signature="method#Processar#1;class#ControladorGeralSingleton#0" expanded="false" />
+            <element signature="method#copiaLista#0;class#ControladorGeralSingleton#0" expanded="false" />
+            <element signature="e#2459#2460#0" expanded="true" />
+            <element signature="e#2520#2521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/CadastrarprocessosController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="75" column="81" lean-forward="true" selection-start-line="75" selection-start-column="81" selection-end-line="75" selection-end-column="81" />
+        <state relative-caret-position="117">
+          <caret line="69" column="36" lean-forward="true" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
           <folding>
             <element signature="docComment;class#CadastrarprocessosController#0" expanded="false" />
             <element signature="docComment;method#initialize#0;class#CadastrarprocessosController#0" expanded="false" />
@@ -972,22 +985,6 @@
             <element signature="method#clickAtualizar#0;class#CadastrarprocessosController#0" expanded="false" />
             <element signature="method#verificarMesmaCor#0;class#CadastrarprocessosController#0" expanded="false" />
             <element signature="method#escolhaComboAlgoritmo#0;class#CadastrarprocessosController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ControladorGeralSingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding>
-            <element signature="docComment;class#ControladorGeralSingleton#0" expanded="false" />
-            <element signature="method#getInstancia#0;class#ControladorGeralSingleton#0" expanded="false" />
-            <element signature="method#Processar#0;class#ControladorGeralSingleton#0" expanded="false" />
-            <element signature="method#Processar#1;class#ControladorGeralSingleton#0" expanded="false" />
-            <element signature="method#copiaLista#0;class#ControladorGeralSingleton#0" expanded="false" />
-            <element signature="e#2459#2460#0" expanded="true" />
-            <element signature="e#2520#2521#0" expanded="true" />
           </folding>
         </state>
       </provider>

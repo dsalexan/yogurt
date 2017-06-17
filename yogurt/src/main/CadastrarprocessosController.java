@@ -68,14 +68,14 @@ public class CadastrarprocessosController implements Initializable {
         controlador= ControladorGeralSingleton.getInstancia();
         lblProcesso.setText("Processo "+(controlador.processoAtual));
         txtQuantum.setDisable(true);
-      
+      /*
         if(controlador.processoAtual <= controlador.listaProcessos.size()) // a tela tem que mostrar um processo ja cadastrado
        {
            cbCor.setValue(Color.web(controlador.listaProcessos.get(controlador.processoAtual-1).cor));
            txtPrioridade.setText("" + (controlador.listaProcessos.get(controlador.processoAtual-1).prioridade) );
            txtTempoChegada.setText("" + (controlador.listaProcessos.get(controlador.processoAtual-1).tempoChegada) );
            txtTempoProcessar.setText("" + (controlador.listaProcessos.get(controlador.processoAtual-1).tempoParaProcessar) );
-       }
+       }*/
        
     }    
     @FXML
