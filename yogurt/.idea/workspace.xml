@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" afterPath="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Escalonadores.java" afterPath="$PROJECT_DIR$/src/main/Escalonadores.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -102,16 +103,16 @@
       <file leaf-file-name="Escalonadores.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Escalonadores.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="345" column="8" lean-forward="false" selection-start-line="345" selection-start-column="8" selection-end-line="345" selection-end-column="8" />
+            <state relative-caret-position="59">
+              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="method#Escalonadores#0;class#Escalonadores#0" expanded="false" />
                 <element signature="method#toString#0;class#Escalonadores#0" expanded="false" />
-                <element signature="method#RR#0;class#Escalonadores#0" expanded="false" />
                 <element signature="method#SJF#0;class#Escalonadores#0" expanded="false" />
                 <element signature="method#SRT#0;class#Escalonadores#0" expanded="false" />
                 <element signature="method#PRIO#0;class#Escalonadores#0" expanded="false" />
-                <element signature="e#13141#13209#0" expanded="false" />
+                <element signature="method#PRIO_PREEMPTIVO#0;class#Escalonadores#0" expanded="false" />
+                <element signature="e#13147#13215#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -120,8 +121,8 @@
       <file leaf-file-name="ControladorGeralSingleton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ControladorGeralSingleton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+            <state relative-caret-position="158">
+              <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
               <folding>
                 <element signature="docComment;class#ControladorGeralSingleton#0" expanded="false" />
                 <element signature="method#getInstancia#0;class#ControladorGeralSingleton#0" expanded="false" />
@@ -191,8 +192,8 @@
         <option value="$PROJECT_DIR$/src/main/CadastrarprocessosController.java" />
         <option value="$PROJECT_DIR$/src/main/DiagramaganttController.java" />
         <option value="$PROJECT_DIR$/src/main/Processo.java" />
-        <option value="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" />
         <option value="$PROJECT_DIR$/src/main/Escalonadores.java" />
+        <option value="$PROJECT_DIR$/src/main/ControladorGeralSingleton.java" />
       </list>
     </option>
   </component>
@@ -544,7 +545,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1316" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -556,7 +556,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38803682" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38803682" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961783" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -569,7 +569,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4074074" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33895704" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -637,19 +637,13 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Escalonadores.java</url>
-          <line>114</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/DiagramaganttController.java</url>
           <line>171</line>
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="43" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -741,11 +735,11 @@
           <folding>
             <element signature="method#Escalonadores#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#toString#0;class#Escalonadores#0" expanded="false" />
-            <element signature="method#RR#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#SJF#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#SRT#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#PRIO#0;class#Escalonadores#0" expanded="false" />
-            <element signature="e#13141#13209#0" expanded="false" />
+            <element signature="method#PRIO_PREEMPTIVO#0;class#Escalonadores#0" expanded="false" />
+            <element signature="e#13147#13215#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -786,11 +780,11 @@
           <folding>
             <element signature="method#Escalonadores#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#toString#0;class#Escalonadores#0" expanded="false" />
-            <element signature="method#RR#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#SJF#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#SRT#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#PRIO#0;class#Escalonadores#0" expanded="false" />
-            <element signature="e#13141#13209#0" expanded="false" />
+            <element signature="method#PRIO_PREEMPTIVO#0;class#Escalonadores#0" expanded="false" />
+            <element signature="e#13147#13215#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -823,11 +817,11 @@
           <folding>
             <element signature="method#Escalonadores#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#toString#0;class#Escalonadores#0" expanded="false" />
-            <element signature="method#RR#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#SJF#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#SRT#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#PRIO#0;class#Escalonadores#0" expanded="false" />
-            <element signature="e#13141#13209#0" expanded="false" />
+            <element signature="method#PRIO_PREEMPTIVO#0;class#Escalonadores#0" expanded="false" />
+            <element signature="e#13147#13215#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -874,13 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Comparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="149" column="8" lean-forward="false" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -973,24 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CadastrarprocessosController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="213" column="53" lean-forward="true" selection-start-line="213" selection-start-column="53" selection-end-line="213" selection-end-column="53" />
-          <folding>
-            <element signature="docComment;class#CadastrarprocessosController#0" expanded="false" />
-            <element signature="docComment;method#initialize#0;class#CadastrarprocessosController#0" expanded="false" />
-            <element signature="method#initialize#0;class#CadastrarprocessosController#0" expanded="false" />
-            <element signature="method#loadProcess#0;class#CadastrarprocessosController#0" expanded="false" />
-            <element signature="method#clickRemover#0;class#CadastrarprocessosController#0" expanded="false" />
-            <element signature="method#clickProcessar#0;class#CadastrarprocessosController#0" expanded="false" />
-            <element signature="method#clickLimpar#0;class#CadastrarprocessosController#0" expanded="false" />
-            <element signature="method#clickLimparFila#0;class#CadastrarprocessosController#0" expanded="false" />
-            <element signature="method#escolhaComboAlgoritmo#0;class#CadastrarprocessosController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Processo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -1010,10 +979,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/CadastrarprocessosController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="213" column="53" lean-forward="true" selection-start-line="213" selection-start-column="53" selection-end-line="213" selection-end-column="53" />
+          <folding>
+            <element signature="docComment;class#CadastrarprocessosController#0" expanded="false" />
+            <element signature="docComment;method#initialize#0;class#CadastrarprocessosController#0" expanded="false" />
+            <element signature="method#initialize#0;class#CadastrarprocessosController#0" expanded="false" />
+            <element signature="method#loadProcess#0;class#CadastrarprocessosController#0" expanded="false" />
+            <element signature="method#clickRemover#0;class#CadastrarprocessosController#0" expanded="false" />
+            <element signature="method#clickProcessar#0;class#CadastrarprocessosController#0" expanded="false" />
+            <element signature="method#clickLimpar#0;class#CadastrarprocessosController#0" expanded="false" />
+            <element signature="method#clickLimparFila#0;class#CadastrarprocessosController#0" expanded="false" />
+            <element signature="method#escolhaComboAlgoritmo#0;class#CadastrarprocessosController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ControladorGeralSingleton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+        <state relative-caret-position="158">
+          <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding>
             <element signature="docComment;class#ControladorGeralSingleton#0" expanded="false" />
             <element signature="method#getInstancia#0;class#ControladorGeralSingleton#0" expanded="false" />
@@ -1023,18 +1010,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Comparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="149" column="8" lean-forward="false" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Escalonadores.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="345" column="8" lean-forward="false" selection-start-line="345" selection-start-column="8" selection-end-line="345" selection-end-column="8" />
+        <state relative-caret-position="59">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="method#Escalonadores#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#toString#0;class#Escalonadores#0" expanded="false" />
-            <element signature="method#RR#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#SJF#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#SRT#0;class#Escalonadores#0" expanded="false" />
             <element signature="method#PRIO#0;class#Escalonadores#0" expanded="false" />
-            <element signature="e#13141#13209#0" expanded="false" />
+            <element signature="method#PRIO_PREEMPTIVO#0;class#Escalonadores#0" expanded="false" />
+            <element signature="e#13147#13215#0" expanded="false" />
           </folding>
         </state>
       </provider>

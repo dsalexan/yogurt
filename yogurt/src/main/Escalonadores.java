@@ -112,7 +112,7 @@ public class Escalonadores
             }
         }
 
-        int a = 4;
+        addEmptyBoxes();
     }
 
     public void SJF() {

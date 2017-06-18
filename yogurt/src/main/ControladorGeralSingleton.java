@@ -34,11 +34,11 @@ public class ControladorGeralSingleton {
         Processo p4 =  new Processo(2, 5, 2, "4", "AE592D");
         Processo p5 =  new Processo(25, 3, 1, "5", "#000000");
 
-        listaProcessos.add(p1);
-        listaProcessos.add(p2);
+        //listaProcessos.add(p1);
+        //listaProcessos.add(p2);
         listaProcessos.add(p3);
         listaProcessos.add(p4);
-        listaProcessos.add(p5);
+        //listaProcessos.add(p5);
     }
 
     public static ControladorGeralSingleton getInstancia() {
