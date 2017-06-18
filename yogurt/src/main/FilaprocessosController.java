@@ -79,6 +79,11 @@ public class FilaprocessosController implements Initializable {
         pid.setLayoutX(8.0);
         pid.setLayoutY(7.0);
 
+        final Label prio = new Label("prio: " + p.getPrioridade());
+        prio.setFont(new Font(10.0));
+        prio.setLayoutX(149.0);
+        prio.setLayoutY(9.0);
+
         final Label arrvl = new Label("Chegada: " + String.valueOf(p.getTempoChegada()));
         arrvl.setFont(new Font(11.0));
         arrvl.setLayoutX(14.0);
@@ -123,6 +128,7 @@ public class FilaprocessosController implements Initializable {
 
 
         pne.getChildren().add(pid);
+        pne.getChildren().add(prio);
         pne.getChildren().add(arrvl);
         pne.getChildren().add(exctn);
         pne.getChildren().add(clr);
