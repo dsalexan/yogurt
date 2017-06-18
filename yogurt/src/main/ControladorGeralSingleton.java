@@ -25,7 +25,7 @@ public class ControladorGeralSingleton {
 
     private ControladorGeralSingleton() {
         listaProcessos = new ArrayList<>();
-        escalonador = null;
+        escalonador = new Escalonadores(null);
         diagrama = null;
 
         Processo p1 =  new Processo(1, 3, 2, "1", "#3399ff");

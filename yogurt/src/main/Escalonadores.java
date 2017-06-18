@@ -9,16 +9,16 @@ public class Escalonadores
     ArrayList<Processo> processos;
     ArrayList<DiagramaGantt> diagrama;
     int processosRestantes;
-    public Escalonadores( ArrayList<Processo> processos)
-    {
+    public Escalonadores( ArrayList<Processo> processos) {
         this.processos = processos;
         diagrama = new ArrayList<>();
-        processosRestantes = processos.size();
+        processosRestantes = processos == null ? 0 : processos.size();
     }
     @Override
-    public String toString()
-    {
+    public String toString() {
         String string="";
+        if(processos == null) return "Escalonador vazio :)";
+
         for(int i=0; i<diagrama.size();i++)
         {
             Processo p =diagrama.get(i).processo;
@@ -69,7 +69,7 @@ public class Escalonadores
         processosOrdenados.sort((o1, o2) -> o1.getTempoChegada()-o2.getTempoChegada());
         t = processosOrdenados.get(i).getTempoChegada();
         while(processosRestantes > 0){ // relógio ticka enquanto houverem processos
-            processosNaFila = (ArrayList<Processo>) processos.clone();
+            processosNaFila = cloneList(processos);
             processosNaFila.sort((o1, o2) -> o1.getTempoChegada()-o2.getTempoChegada());
 
             p = processosOrdenados.get(i);
@@ -77,7 +77,7 @@ public class Escalonadores
             te = (quantum > p.getTempoParaProcessar()) ? p.getTempoParaProcessar() : quantum;
 
             // atualiza o diagrama
-            diagrama.add(new DiagramaGantt(t, t+te, processos.get(i)));
+            diagrama.add(new DiagramaGantt(t, t+te, p));
 
             t += te;
 
@@ -113,6 +113,7 @@ public class Escalonadores
         }
 
         addEmptyBoxes();
+        correctContinuity();
     }
 
     public void SJF() {
@@ -295,7 +296,7 @@ public class Escalonadores
         int t = 0; // tempo do relogio
         int waitingTime = 0;
 
-      for(t=1; processosRestantes > 0; t++){ // enquanto nao executar todos os processos da lista o relogio ticka
+      for(t=0; processosRestantes > 0; t++){ // enquanto nao executar todos os processos da lista o relogio ticka
         // lista os processos na fila
         processosNaFila = (ArrayList<Processo>)processos.clone();
         processosNaFila.removeIf(p1 -> p1.getTerminado());
@@ -362,5 +363,30 @@ public class Escalonadores
         }
 
         diagrama = newDiagram;
+    }
+
+    private void correctContinuity(){
+        ArrayList<DiagramaGantt> newDiagram = new ArrayList<>();
+
+        for(int i = 1; i < diagrama.size(); i++){
+            DiagramaGantt p = diagrama.get(i-1);
+            DiagramaGantt d = diagrama.get(i);
+
+            if(d.processo.getId().equals(p.processo == null ? "" : p.processo.getId()) && d.tempoIni == p.tempoFim){
+                if(i!=1) newDiagram.remove(newDiagram.size()-1);
+                newDiagram.add(new DiagramaGantt(p.tempoIni, d.tempoFim, d.processo));
+            }else {
+                if(i==1) newDiagram.add(p);
+                newDiagram.add(d);
+            }
+        }
+
+        diagrama = newDiagram;
+    }
+
+    private ArrayList<Processo> cloneList(ArrayList<Processo> toClone){
+        ArrayList<Processo> clone = new ArrayList<>();
+        for(Processo p: toClone) clone.add(new Processo(p));
+        return clone;
     }
 }

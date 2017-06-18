@@ -4,5 +4,6 @@
 [NOT TWEAKED]- (TWEAK) RR nao se utiliza de espaços vazioa (processos de valor nulo), talvez alterar para consistencia. Comparar tweak#4.1.png com tweak#4.2.png para referencia
 [FIXED]- Prioridade e Prioridade preemptivo nao parecem estar funcionais. Será? Checar dados em bug#5.2.png e bug#5.2.png para referencia. Na verdade os dados saem corretamente, a falta de espaços vazios no diagrama-classe causa um erro de exibição (como visivel em bug#5.3.png e apresentado em tweak#4)
 [FIXED]- Prioridade preemptivo ta esquisito, os espaços de duração das caixas e vazios. Checar em bug#6.png para referencia
-- Mentira, reativa o tweak#4, é um bug de exibição no final. Também ta errado o RR, saca só o pid 4. Aparentemente o pid3 ta virando pid 4 entre os tempos 19 e 21. Chegar bug#7.2.png para melhor referencia
-
+[FIXED]- Mentira, reativa o tweak#4, é um bug de exibição no final. Também ta errado o RR, saca só o pid 4. Aparentemente o pid3 ta virando pid 4 entre os tempos 19 e 21. Chegar bug#7.2.png para melhor referencia. TA INVERTENDO O 3 COM O 4, fucker
+[FIXED]- O PRIO PREEMPTIVO nao ta começando do 0, mas sim do 1. Olhar bug#8 para referencia
+[FIXED]- Quando tenta processar RR sem especificar quantum da um erro zoado, mesmo com o prog avisando q precisa de quantum pra continuar

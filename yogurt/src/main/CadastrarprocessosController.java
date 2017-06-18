@@ -131,27 +131,23 @@ public class CadastrarprocessosController implements Initializable {
 
     @FXML
     private void clickProcessar(ActionEvent event) {
-        if(controlador.listaProcessos.size()>0)
-        {
-            if(cbAlgoritmo.getValue().equals("RR"))
-            {
-               try
-               { 
+        if(controlador.listaProcessos.size()>0) {
+            if(cbAlgoritmo.getValue().equals("RR")) {
+               try {
                     int quantum =  Integer.parseInt(txtQuantum.getText());
                     controlador.Processar("RR",quantum);
 
-               } catch (NumberFormatException ex) 
-               {
+               } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(new JFrame(),  "Preencha o campo de Quantum corretamente");
                }
            }
-           else
+           else {
                 controlador.Processar(cbAlgoritmo.getValue());
+            }
 
            System.out.println(controlador.escalonador.toString());
         }
-        else
-        {
+        else {
              JOptionPane.showMessageDialog(new JFrame(),  "Sem processos na fila");
         }
        
