@@ -1,3 +1,5 @@
 [FIXED]- Quando atualiza o mesmo processo duas vezes seguidas da erro, mesmo sem mudar nada
 [FIXED]- Usando a lista de processos especificada em bug#2.png e pedidindo FIFO da erro de alguma coisa nullable
 [FIXED]- Quando exclui o pid 2 da lista de bug#2.png e manda re-processar, da um erro fudidao. Se exclui antes de processar pela primeira vez, nao da erro n
+ - (TWEAK) RR nao se utiliza de espaços vazioa (processos de valor nulo), talvez alterar para consistencia. Comparar tweak#4.1.png com tweak#4.2.png para referencia
+ - Prioridade e Prioridade preemptivo nao parecem estar funcionais. Será? Checar dados em bug#5.2.png e bug#5.2.png para referencia. Na verdade os dados saem corretamente, a falta de espaços vazios no diagrama-classe causa um erro de exibição (como visivel em bug#5.3.png e apresentado em tweak#4)

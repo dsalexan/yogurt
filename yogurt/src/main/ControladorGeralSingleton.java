@@ -28,16 +28,17 @@ public class ControladorGeralSingleton {
         escalonador = null;
         diagrama = null;
 
-
-        Processo p1 =  new Processo(1, 2, 1, "1", "#3399ff");
-        Processo p2 =  new Processo(2, 4, 1, "2", "80B3FF");
+        Processo p1 =  new Processo(1, 3, 2, "1", "#3399ff");
+        Processo p2 =  new Processo(2, 6, 1, "2", "80B3FF");
         Processo p3 =  new Processo(4, 7, 3, "3", "FF8080");
         Processo p4 =  new Processo(2, 5, 2, "4", "AE592D");
+        Processo p5 =  new Processo(25, 3, 1, "5", "#000000");
 
         listaProcessos.add(p1);
         listaProcessos.add(p2);
         listaProcessos.add(p3);
         listaProcessos.add(p4);
+        listaProcessos.add(p5);
     }
 
     public static ControladorGeralSingleton getInstancia() {
