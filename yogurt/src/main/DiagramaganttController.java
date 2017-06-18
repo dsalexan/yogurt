@@ -15,6 +15,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -95,10 +96,10 @@ public class DiagramaganttController implements Initializable {
     // DRAWING METHODS //
 
     public Label generateRegister(String text){
-        return  generateRegister(text, 22.0, "#fafafa");
+        return  generateRegister(text, 22.0, "#fafafa", null, null);
     }
 
-    public Label generateRegister(String text, double width, String cor){
+    public Label generateRegister(String text, double width, String cor, Algoritmo a, Processo p){
         final Label lbl = new Label(text);
         lbl.setAlignment(Pos.CENTER);
         lbl.setContentDisplay(ContentDisplay.CENTER);
@@ -107,6 +108,15 @@ public class DiagramaganttController implements Initializable {
         lbl.setMinWidth(width);
         lbl.setBackground(new Background(new BackgroundFill(Color.web(cor), CornerRadii.EMPTY, Insets.EMPTY)));
         lbl.setTextAlignment(TextAlignment.CENTER);
+
+        if (a != null && p != null) {
+            final Tooltip ttp = new Tooltip(
+                    "Tempo de espera: " + String.valueOf(p.getTempoEspera()) + "\n"+
+                        "Tempo de espera médio (" + a.nome + "): " + String.valueOf(a.tempoMedio));
+            //ttp.setStyle("-fx-font: 11px;");
+
+            lbl.setTooltip(ttp);
+        }
 
         return lbl;
     }
@@ -160,12 +170,12 @@ public class DiagramaganttController implements Initializable {
 
             String text = r.processo != null ? r.processo.getId() : "-";
             String cor = r.processo != null ? r.processo.getCor() : "#fafafa";
-            boxes.getChildren().add(generateRegister(text, width, cor));
+            boxes.getChildren().add(generateRegister(text, width, cor, diagram.getAlgoritmo(), r.processo));
         }
 
         double filledSpace = diagram.getTempoFinal() * (22.0 + 1.0) - 1.0;
         double emptySpace = boxes.getPrefWidth() - filledSpace;
-        boxes.getChildren().add(generateRegister(String.valueOf("-"), emptySpace, "#fafafa"));
+        boxes.getChildren().add(generateRegister(String.valueOf("-"), emptySpace, "#fafafa", null, null));
     }
 
     public  void clearHBox(HBox hbx){

@@ -326,7 +326,7 @@ public class Escalonadores
           //executa o processo P
             processosNaFila.get(i).setTempoParaProcessar(processosNaFila.get(i).getTempoParaProcessar()-1);
           if(processosNaFila.get(i).getTempoParaProcessar() == 0){
-              processosNaFila.get(i).setTempoTermino(t);
+              processosNaFila.get(i).setTempoTermino(t+1);
               processosNaFila.get(i).setTerminado(true);
 
             processosRestantes--;

@@ -87,7 +87,7 @@ public class ControladorGeralSingleton {
                 break;
         }
         diagrama = escalonador.diagrama;
-        updateDiagram();
+        updateDiagram(algoritmo);
     }
 
     public void updateProcessScreen(Processo p){
@@ -111,9 +111,11 @@ public class ControladorGeralSingleton {
 
         updateProcessStack();
     }
-    public void updateDiagram(){
+    public void updateDiagram(String algoritmo){
         //System.out.println("UPDATING DIAGRAM");
         Diagrama d = new Diagrama(diagrama);
+        d.setAlgoritmo(algoritmo);
+        d.calcAverageWaiting();
         ProcessDiagram.loadDiagram(d);
     }
 }

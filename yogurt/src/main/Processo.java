@@ -12,6 +12,7 @@ public class Processo
     public int tempoChegada;
     private int tempoTermino;
     public int tempoParaProcessar;
+    public int tempoExecucao;
     public int prioridade;
     private boolean terminado;
     public String cor;
@@ -20,6 +21,7 @@ public class Processo
         tempoChegada = newTempoChegada;
         tempoTermino=-1;
         tempoParaProcessar = newTempoProcessar;
+        tempoExecucao = newTempoProcessar;
         prioridade = newPrioridade;
         terminado = false;
         cor = newCor;
@@ -41,6 +43,10 @@ public class Processo
 
     public void setTempoParaProcessar(int tempoParaProcessar) {
         this.tempoParaProcessar = tempoParaProcessar;
+    }
+
+    public double getTempoEspera(){
+        return getTempoTermino() - getTempoChegada() - this.tempoExecucao;
     }
 
     public int getPrioridade() {
