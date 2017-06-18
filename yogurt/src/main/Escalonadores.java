@@ -281,6 +281,8 @@ public class Escalonadores
 
         processosRestantes--;
       }
+
+      addEmptyBoxes();
     }
 
     public void PRIO_PREEMPTIVO(){
@@ -302,10 +304,6 @@ public class Escalonadores
         final int t1 = t;
           processosNaFila.removeIf(p1 -> p1.getTempoChegada() > t1);
 
-          if(t1 == 45){
-              int bk = 1;
-          }
-
         if(processosNaFila.size() > 0){
 
           //ordena a fila por prioridade
@@ -315,7 +313,7 @@ public class Escalonadores
           // atualiza o diagrama quando OCORRE PREEMPCAO
           if(!ultimoProcesso[0].toString().equals(processosNaFila.get(i).getCor()) && !ultimoProcesso[0].toString().equals("")){
             p = (Processo) ultimoProcesso[1];
-            diagrama.add(new DiagramaGantt(memoria.get(p.getCor()), t-1-waitingTime, p));
+            diagrama.add(new DiagramaGantt(memoria.get(p.getCor()), t-waitingTime, p));
             memoria.remove(p.getCor());
           }
 
@@ -344,5 +342,25 @@ public class Escalonadores
         p = (Processo) ultimoProcesso[1];
         diagrama.add(new DiagramaGantt(memoria.get(p.getCor()), t, p));
         memoria.remove(p.getCor());
+
+        addEmptyBoxes();
+    }
+
+    private void addEmptyBoxes(){
+        ArrayList<DiagramaGantt> newDiagram = new ArrayList<>();
+
+        for(int i = 0; i < diagrama.size(); i++){
+            DiagramaGantt d = diagrama.get(i);
+
+            if(i==0){
+                if(d.tempoIni != 0) newDiagram.add(new DiagramaGantt(0, d.tempoIni, null));
+            }else{
+                if(d.tempoIni != diagrama.get(i-1).tempoFim) newDiagram.add(new DiagramaGantt(diagrama.get(i-1).tempoFim, d.tempoIni, null));
+            }
+
+            newDiagram.add(d);
+        }
+
+        diagrama = newDiagram;
     }
 }
